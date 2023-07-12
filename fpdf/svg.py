@@ -1,3 +1,4 @@
+from collections import defaultdict
 import math, re, warnings
 
 from fontTools.svgLib.path import parse_path
@@ -16,6 +17,7 @@ from . import html
 from .drawing import (
     color_from_hex_string,
     color_from_rgb_string,
+    ClippingPath,
     GraphicsContext,
     GraphicsStyle,
     PaintedPath,
@@ -323,15 +325,16 @@ class ShapeBuilder:
     """A namespace within which methods for converting basic shapes can be looked up."""
 
     @staticmethod
-    def new_path(tag):
+    def new_path(tag, path):
         """Create a new path with the appropriate styles."""
-        path = PaintedPath()
+        if path is None:
+            path = PaintedPath()
         apply_styles(path, tag)
 
         return path
 
     @classmethod
-    def rect(cls, tag):
+    def rect(cls, tag, path=None):
         """Convert an SVG <rect> into a PDF path."""
         # svg rect is wound clockwise
         if "x" in tag.attrib:
@@ -374,14 +377,16 @@ class ShapeBuilder:
             raise ValueError(f"bad rect {tag}")
 
         if (width == 0) or (height == 0):
-            return PaintedPath()
+            if path is None:
+                return PaintedPath()
+            return path
 
         if rx > (width / 2):
             rx = width / 2
         if ry > (height / 2):
             ry = height / 2
 
-        path = cls.new_path(tag)
+        path = cls.new_path(tag, path)
 
         path.rectangle(x, y, width, height, rx, ry)
         return path
@@ -649,6 +654,8 @@ class SVGObject:
 
     def __init__(self, svg_text):
         self.cross_references = {}
+        self.clip_paths = {}
+        self.clipped_elements = defaultdict(list)
 
         # disabling bandit rule as we use defusedxml:
         svg_tree = parse_xml_str(svg_text)  # nosec B314
@@ -658,6 +665,12 @@ class SVGObject:
 
         self.extract_shape_info(svg_tree)
         self.convert_graphics(svg_tree)
+
+        breakpoint()
+        for url, elements in self.clipped_elements.items():
+            for elem in elements:
+                assert type(elem) is GraphicsContext
+                elem.clipping_path = self.clip_paths[url]
 
     @force_nodocument
     def extract_shape_info(self, root_tag):
@@ -814,7 +827,7 @@ class SVGObject:
                 )
 
         self.base_group.transform = transform
-
+        breakpoint()
         return vp_width / scale, vp_height / scale, self.base_group
 
     def draw_to_page(self, pdf, x=None, y=None, debug_stream=None):
@@ -853,7 +866,24 @@ class SVGObject:
                 self.build_group(child)
             if child.tag in xmlns_lookup("svg", "path"):
                 self.build_path(child)
+            if child.tag in xmlns_lookup("svg", "clipPath"):
+                self.handle_clip_path(child)
             # We could/should also support <defs> that are rect, circle, ellipse, line, polyline, polygon...
+
+    @force_nodocument
+    def handle_clip_path(self, clip_path):
+        """Parse elements in <clipPath> and store in lookup table"""
+        if len(clip_path) != 1:
+            raise ValueError()
+
+        child = clip_path[0]
+
+        if child.tag in xmlns_lookup("svg", "path"):
+            item = self.build_path(child, pdf_path=ClippingPath())
+        elif child.tag in shape_tags:
+            item = getattr(ShapeBuilder, shape_tags[child.tag])(child, ClippingPath())
+
+        self.clip_paths["url(#" + clip_path.attrib["id"] + ")"] = item
 
     # this assumes xrefs only reference already-defined ids.
     # I don't know if this is required by the SVG spec.
@@ -898,14 +928,23 @@ class SVGObject:
         for child in group:
             if child.tag in xmlns_lookup("svg", "defs"):
                 self.handle_defs(child)
+                continue
             if child.tag in xmlns_lookup("svg", "g"):
-                pdf_group.add_item(self.build_group(child))
-            if child.tag in xmlns_lookup("svg", "path"):
-                pdf_group.add_item(self.build_path(child))
+                item = self.build_group(child)
+            elif child.tag in xmlns_lookup("svg", "path"):
+                item = self.build_path(child)
             elif child.tag in shape_tags:
-                pdf_group.add_item(getattr(ShapeBuilder, shape_tags[child.tag])(child))
-            if child.tag in xmlns_lookup("svg", "use"):
-                pdf_group.add_item(self.build_xref(child))
+                item = getattr(ShapeBuilder, shape_tags[child.tag])(child)
+            elif child.tag in xmlns_lookup("svg", "use"):
+                item = self.build_xref(child)
+
+            if "clip-path" in child.attrib:
+                sub_context = GraphicsContext()
+                sub_context.add_item(item)
+                self.clipped_elements[child.attrib["clip-path"]].append(sub_context)
+                item = sub_context
+
+            pdf_group.add_item(item, _copy=False)
 
         try:
             self.cross_references["#" + group.attrib["id"]] = pdf_group
@@ -915,9 +954,11 @@ class SVGObject:
         return pdf_group
 
     @force_nodocument
-    def build_path(self, path):
+    def build_path(self, path, pdf_path=None):
         """Convert an SVG <path> tag into a PDF path object."""
-        pdf_path = PaintedPath()
+        if pdf_path is None:
+            pdf_path = PaintedPath()
+
         apply_styles(pdf_path, path)
 
         svg_path = path.attrib.get("d", None)

@@ -279,3 +279,19 @@ class TestSVGObject:
         svg.draw_to_page(pdf)
 
         assert_pdf_equal(pdf, GENERATED_PDF_DIR / f"{svg_file.stem}.pdf", tmp_path)
+
+    def test_svg_clippath_rect(self, tmp_path):
+        svg_file = parameters.svgfile("clippath_rect.svg")
+
+        svg = fpdf.svg.SVGObject.from_file(svg_file)
+
+        pdf = fpdf.FPDF(unit="pt", format=(svg.width, svg.height))
+        pdf.set_margin(0)
+        pdf.allow_images_transparency = False
+        pdf.add_page()
+
+        svg.draw_to_page(pdf)
+
+        assert_pdf_equal(
+            pdf, GENERATED_PDF_DIR / f"{svg_file.stem}.pdf", tmp_path, generate=True
+        )
