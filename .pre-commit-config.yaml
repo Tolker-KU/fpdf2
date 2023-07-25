@@ -19,6 +19,11 @@ repos:
     rev: 23.3.0
     hooks:
       - id: black
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0  # keep revsion in sync with version in test/requirements.txt
+    hooks:
+      - id: isort
+        name: isort (python)
   - repo: local
     hooks:
     -   id: no-print-in-sources

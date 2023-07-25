@@ -9,15 +9,17 @@
 # API DOC: https://developer.github.com/v3/issues/
 
 import argparse
-from http.client import HTTPConnection, HTTPException
 import json
 import logging
 import os
 import sys
+from http.client import HTTPConnection
+from http.client import HTTPException
 
-from agithub.GitHub import GitHub
 from agithub.base import IncompleteRequest
-from jinja2 import Environment, FileSystemLoader
+from agithub.GitHub import GitHub
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
 
 THIS_SCRIPT_PARENT_DIR = os.path.dirname(os.path.realpath(__file__))
 

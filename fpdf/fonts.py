@@ -3,16 +3,21 @@ Font-related classes & constants.
 Includes the definition of the character widths of all PDF standard fonts.
 """
 import re
-
 from collections import defaultdict
-from dataclasses import dataclass, replace
-from typing import List, Optional, Union
+from dataclasses import dataclass
+from dataclasses import replace
+from typing import List
+from typing import Optional
+from typing import Union
 
 from fontTools import ttLib
 
-from .drawing import DeviceGray, DeviceRGB
-from .enums import FontDescriptorFlags, TextEmphasis
-from .syntax import Name, PDFObject
+from .drawing import DeviceGray
+from .drawing import DeviceRGB
+from .enums import FontDescriptorFlags
+from .enums import TextEmphasis
+from .syntax import Name
+from .syntax import PDFObject
 
 
 @dataclass

@@ -1,18 +1,22 @@
-import copy, decimal, math, re
+import copy
+import decimal
+import math
+import re
 from collections import OrderedDict
 from contextlib import contextmanager
-from typing import Optional, NamedTuple, Union
+from typing import NamedTuple
+from typing import Optional
+from typing import Union
 
-from .enums import (
-    BlendMode,
-    ClippingPathIntersectionRule,
-    IntersectionRule,
-    PathPaintRule,
-    StrokeCapStyle,
-    StrokeJoinStyle,
-    PDFStyleKeys,
-)
-from .syntax import Name, Raw
+from .enums import BlendMode
+from .enums import ClippingPathIntersectionRule
+from .enums import IntersectionRule
+from .enums import PathPaintRule
+from .enums import PDFStyleKeys
+from .enums import StrokeCapStyle
+from .enums import StrokeJoinStyle
+from .syntax import Name
+from .syntax import Raw
 from .util import escape_parens
 
 __pdoc__ = {"force_nodocument": False}

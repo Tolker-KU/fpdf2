@@ -2,13 +2,15 @@ import io
 import logging
 import sys
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
-from PIL import Image, ImageDraw, ImageFont
 import pytest
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 
 import fpdf
 from fpdf.image_parsing import transcode_monochrome
-from test.conftest import assert_pdf_equal
 
 HERE = Path(__file__).resolve().parent
 

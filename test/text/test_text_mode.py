@@ -1,11 +1,10 @@
 from pathlib import Path
-
-from fpdf import FPDF, TextMode
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from test.conftest import assert_pdf_equal
-
+from fpdf import FPDF
+from fpdf import TextMode
 
 HERE = Path(__file__).resolve().parent
 

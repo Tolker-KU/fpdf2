@@ -4,8 +4,10 @@
 
 import sys
 
+from pdfrw import PdfReader
+from pdfrw import PdfWriter
+
 from fpdf import FPDF
-from pdfrw import PdfReader, PdfWriter
 
 IN_FILEPATH = sys.argv[1]
 OUT_FILEPATH = sys.argv[2]

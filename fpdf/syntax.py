@@ -59,11 +59,13 @@ endobj
 In this case, the ASCIIHexDecode filter is used because
 "68656c6c6f20776f726c64" is "hello world" in ascii, and 22 is the length of that string.
 """
-import re, zlib
+import re
+import zlib
 from abc import ABC
 from binascii import hexlify
 from codecs import BOM_UTF16_BE
-from datetime import datetime, timezone
+from datetime import datetime
+from datetime import timezone
 
 
 def clear_empty_fields(d):

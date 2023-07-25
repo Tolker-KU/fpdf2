@@ -1,29 +1,29 @@
 # pylint: disable=protected-access
 import logging
-from collections import defaultdict, OrderedDict
+from collections import OrderedDict
+from collections import defaultdict
 from contextlib import contextmanager
 from io import BytesIO
+
+from fontTools import subset as ftsubset
+from fontTools import ttLib
 
 from .annotations import PDFAnnotation
 from .enums import SignatureFlag
 from .errors import FPDFException
 from .outline import build_outline_objs
-from .sign import Signature, sign_content
-from .syntax import (
-    build_obj_dict,
-    Name,
-    PDFArray,
-    PDFContentStream,
-    PDFDate,
-    PDFObject,
-    PDFString,
-)
+from .sign import Signature
+from .sign import sign_content
+from .syntax import Name
+from .syntax import PDFArray
+from .syntax import PDFContentStream
+from .syntax import PDFDate
+from .syntax import PDFObject
+from .syntax import PDFString
+from .syntax import build_obj_dict
 from .syntax import create_dictionary_string as pdf_dict
 from .syntax import create_list_string as pdf_list
 from .syntax import iobj_ref as pdf_ref
-
-from fontTools import ttLib
-from fontTools import subset as ftsubset
 
 try:
     from endesive import signer

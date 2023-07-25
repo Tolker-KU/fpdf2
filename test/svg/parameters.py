@@ -1,29 +1,24 @@
-import pytest
-
-from contextlib import contextmanager
 import math
+from contextlib import contextmanager
 from pathlib import Path
 
-# import fpdf
-from fpdf.drawing import (
-    Point,
-    Transform,
-    IntersectionRule,
-    GraphicsStyle,
-    Move,
-    Line,
-    BezierCurve,
-    QuadraticBezierCurve,
-    Arc as A,
-    ImplicitClose,
-    Close,
-    RoundedRectangle,
-    Ellipse,
-)
+import pytest
 
-from fpdf.svg import (
-    resolve_length,
-)
+# import fpdf
+from fpdf.drawing import Arc as A
+from fpdf.drawing import BezierCurve
+from fpdf.drawing import Close
+from fpdf.drawing import Ellipse
+from fpdf.drawing import GraphicsStyle
+from fpdf.drawing import ImplicitClose
+from fpdf.drawing import IntersectionRule
+from fpdf.drawing import Line
+from fpdf.drawing import Move
+from fpdf.drawing import Point
+from fpdf.drawing import QuadraticBezierCurve
+from fpdf.drawing import RoundedRectangle
+from fpdf.drawing import Transform
+from fpdf.svg import resolve_length
 
 SVG_SOURCE_DIR = Path(__file__).resolve().parent / "svg_sources"
 

@@ -1,8 +1,8 @@
 # pylint: disable=implicit-str-concat
-import pytest
-
-from decimal import Decimal
 from contextlib import contextmanager
+from decimal import Decimal
+
+import pytest
 
 import fpdf
 

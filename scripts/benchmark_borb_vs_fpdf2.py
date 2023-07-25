@@ -8,7 +8,6 @@ from os.path import getsize
 from pathlib import Path
 from time import perf_counter
 
-from fpdf import FPDF, __version__ as fpdf2_version
 from borb.io.write import ascii_art
 from borb.pdf.canvas.layout.image.image import Image
 from borb.pdf.canvas.layout.page_layout.multi_column_layout import MultiColumnLayout
@@ -16,6 +15,9 @@ from borb.pdf.document.document import Document
 from borb.pdf.page.page import Page
 from borb.pdf.pdf import PDF
 from PIL import Image as PILImage
+
+from fpdf import FPDF
+from fpdf import __version__ as fpdf2_version
 
 
 class CustomMultiColumnLayoutWith(MultiColumnLayout):

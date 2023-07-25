@@ -8,9 +8,11 @@
 # USAGE: ./gif2pdf.py $gif_filepath
 
 import sys
-from fpdf import FPDF
+
 from imageio import mimread
 from PIL import Image
+
+from fpdf import FPDF
 
 in_filepath = sys.argv[1]
 if not in_filepath.endswith(".gif"):

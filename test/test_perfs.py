@@ -1,6 +1,6 @@
 from pathlib import Path
-
-from test.conftest import ensure_exec_time_below, ensure_rss_memory_below
+from test.conftest import ensure_exec_time_below
+from test.conftest import ensure_rss_memory_below
 
 from fpdf import FPDF
 

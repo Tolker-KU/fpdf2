@@ -1,8 +1,9 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
+
 from pytest import warns
 
 import fpdf
-from test.conftest import assert_pdf_equal
 
 HERE = Path(__file__).resolve().parent
 

@@ -1,12 +1,11 @@
 from io import BytesIO
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 from defusedxml.common import EntitiesForbidden
 
 import fpdf
-from test.conftest import assert_pdf_equal
-
 
 HERE = Path(__file__).resolve().parent
 

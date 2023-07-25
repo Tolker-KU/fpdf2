@@ -1,4 +1,7 @@
-from enum import Enum, IntEnum, Flag, IntFlag
+from enum import Enum
+from enum import Flag
+from enum import IntEnum
+from enum import IntFlag
 from sys import intern
 
 from .syntax import Name

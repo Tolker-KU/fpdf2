@@ -2,13 +2,12 @@
 import io
 from pathlib import Path
 
-import fpdf
-from ..conftest import assert_pdf_equal
-
-from defusedxml.ElementTree import fromstring as parse_xml_str
 import pytest
+from defusedxml.ElementTree import fromstring as parse_xml_str
 
+import fpdf
 
+from ..conftest import assert_pdf_equal
 from . import parameters
 
 GENERATED_PDF_DIR = Path(__file__).resolve().parent / "generated_pdf"

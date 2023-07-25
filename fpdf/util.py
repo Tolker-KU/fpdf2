@@ -1,7 +1,12 @@
-import gc, os, warnings
+import gc
+import os
+import warnings
 from numbers import Number
-from tracemalloc import get_traced_memory, is_tracing
-from typing import Iterable, Tuple, Union
+from tracemalloc import get_traced_memory
+from tracemalloc import is_tracing
+from typing import Iterable
+from typing import Tuple
+from typing import Union
 
 # default block size from src/libImaging/Storage.c:
 PIL_MEM_BLOCK_SIZE_IN_MIB = 16
@@ -170,7 +175,8 @@ def get_gc_managed_objs_total_size() -> str:
     "From experiments, not very reliable"
     try:
         # pylint: disable=import-outside-toplevel
-        from pympler.muppy import get_objects, getsizeof
+        from pympler.muppy import get_objects
+        from pympler.muppy import getsizeof
 
         objs_total_size = sum(getsizeof(obj) for obj in get_objects())
         return f"{objs_total_size / 1024 / 1024:.1f} MiB"

@@ -1,10 +1,11 @@
 from pathlib import Path
+from test.conftest import LOREM_IPSUM
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from fpdf import FPDF, FPDFException
-from test.conftest import assert_pdf_equal, LOREM_IPSUM
-
+from fpdf import FPDF
+from fpdf import FPDFException
 
 HERE = Path(__file__).resolve().parent
 FONTS_DIR = HERE.parent / "fonts"

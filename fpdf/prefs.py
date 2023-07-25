@@ -1,5 +1,6 @@
 from .enums import PageMode
-from .syntax import build_obj_dict, create_dictionary_string
+from .syntax import build_obj_dict
+from .syntax import create_dictionary_string
 
 
 class ViewerPreferences:

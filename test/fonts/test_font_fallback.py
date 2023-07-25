@@ -1,12 +1,13 @@
-import pytest
-
 from os import devnull
 from pathlib import Path
+from test.conftest import assert_pdf_equal
+
+import pytest
 
 from fpdf import FPDF
-from fpdf.enums import XPos, YPos
+from fpdf.enums import XPos
+from fpdf.enums import YPos
 from fpdf.errors import FPDFException
-from test.conftest import assert_pdf_equal
 
 HERE = Path(__file__).resolve().parent
 

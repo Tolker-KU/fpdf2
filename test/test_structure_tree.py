@@ -1,4 +1,5 @@
-from fpdf.structure_tree import PDFObject, StructureTreeBuilder
+from fpdf.structure_tree import PDFObject
+from fpdf.structure_tree import StructureTreeBuilder
 
 
 def test_pdf_object_serialize():

@@ -1,9 +1,9 @@
 import logging
 from pathlib import Path
+from test.conftest import assert_pdf_equal
+from test.conftest import ensure_rss_memory_below
 
 import fpdf
-from test.conftest import assert_pdf_equal, ensure_rss_memory_below
-
 
 HERE = Path(__file__).resolve().parent
 IMAGE_PATH = HERE / "png_images/6c853ed9dacd5716bc54eb59cec30889.png"

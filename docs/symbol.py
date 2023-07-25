@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from itertools import chain
+
 import fpdf
 
 pdf = fpdf.FPDF()

@@ -1,13 +1,13 @@
 import binascii
 from glob import glob
 from pathlib import Path
+from test.conftest import assert_pdf_equal
+from test.conftest import ensure_rss_memory_below
+from test.conftest import time_execution
 
 import pytest
 
 import fpdf
-
-from test.conftest import assert_pdf_equal, ensure_rss_memory_below, time_execution
-
 
 HERE = Path(__file__).resolve().parent
 

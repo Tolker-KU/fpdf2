@@ -5,8 +5,11 @@
 
 import sys
 
+from pdfrw import PageMerge
+from pdfrw import PdfReader
+from pdfrw import PdfWriter
+
 from fpdf import FPDF
-from pdfrw import PageMerge, PdfReader, PdfWriter
 
 IN_FILEPATH = sys.argv[1]
 OUT_FILEPATH = sys.argv[2]

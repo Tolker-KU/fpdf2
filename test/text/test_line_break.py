@@ -1,7 +1,12 @@
-from fpdf import FPDF, FPDFException, TextMode
-from fpdf.line_break import Fragment, MultiLineBreak, TextLine, CurrentLine
-
 import pytest
+
+from fpdf import FPDF
+from fpdf import FPDFException
+from fpdf import TextMode
+from fpdf.line_break import CurrentLine
+from fpdf.line_break import Fragment
+from fpdf.line_break import MultiLineBreak
+from fpdf.line_break import TextLine
 
 
 class FxFragment(Fragment):

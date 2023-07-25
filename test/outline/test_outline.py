@@ -1,11 +1,11 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from fpdf import FPDF, TitleStyle, errors
-
-from test.conftest import assert_pdf_equal
-
+from fpdf import FPDF
+from fpdf import TitleStyle
+from fpdf import errors
 
 HERE = Path(__file__).resolve().parent
 

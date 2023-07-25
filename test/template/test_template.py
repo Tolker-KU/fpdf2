@@ -1,9 +1,11 @@
 from pathlib import Path
-from pytest import raises, warns
 
 import qrcode
+from pytest import raises
+from pytest import warns
 
-from fpdf.template import Template, FPDFException
+from fpdf.template import FPDFException
+from fpdf.template import Template
 
 from ..conftest import assert_pdf_equal
 

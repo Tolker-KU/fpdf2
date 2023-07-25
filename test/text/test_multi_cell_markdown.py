@@ -1,10 +1,10 @@
 # pylint: disable=implicit-str-concat
 from pathlib import Path
-
-import fpdf
 from test.conftest import assert_pdf_equal
 
 import pytest
+
+import fpdf
 
 HERE = Path(__file__).resolve().parent
 FONTS_DIR = HERE.parent / "fonts"

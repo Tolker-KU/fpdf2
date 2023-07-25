@@ -5,9 +5,13 @@ Hint tables / hint streams have not been implemented yet,
 and there are a few "TODO" comment remaining.
 cf. https://github.com/PyFPDF/fpdf2/issues/62
 """
-from .output import ContentWithoutID, OutputProducer, PDFHeader
+from .output import ContentWithoutID
+from .output import OutputProducer
+from .output import PDFHeader
 from .sign import sign_content
-from .syntax import PDFArray, PDFContentStream, PDFObject
+from .syntax import PDFArray
+from .syntax import PDFContentStream
+from .syntax import PDFObject
 from .syntax import iobj_ref as pdf_ref
 from .util import buffer_subst
 

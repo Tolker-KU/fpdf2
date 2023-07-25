@@ -1,9 +1,10 @@
 import math
 from pathlib import Path
+from test.conftest import LOREM_IPSUM
+from test.conftest import assert_pdf_equal
 
 from fpdf import FPDF
 from fpdf.enums import Angle
-from test.conftest import assert_pdf_equal, LOREM_IPSUM
 
 HERE = Path(__file__).resolve().parent
 

@@ -4,14 +4,13 @@ can be extracted by well-know PDF tables extraction tools
 """
 import sys
 from pathlib import Path
+from test.table.test_table import TABLE_DATA
 
 import camelot
-from pandas import DataFrame
-from pandas.testing import assert_frame_equal
 import pytest
 import tabula
-
-from test.table.test_table import TABLE_DATA
+from pandas import DataFrame
+from pandas.testing import assert_frame_equal
 
 HERE = Path(__file__).resolve().parent
 _TMP_DF = DataFrame(TABLE_DATA)

@@ -1,9 +1,11 @@
 from pathlib import Path
+from test.conftest import LOREM_IPSUM
+from test.conftest import assert_pdf_equal
 
-import qrcode, pytest
+import pytest
+import qrcode
 
 from fpdf import FPDF
-from test.conftest import assert_pdf_equal, LOREM_IPSUM
 
 HERE = Path(__file__).resolve().parent
 IMG_DIR = HERE.parent / "image"

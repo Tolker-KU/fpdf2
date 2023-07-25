@@ -6,9 +6,14 @@ The contents of this file are internal to fpdf, and not part of the public API.
 They may change at any time without prior warning or any deprecation period.
 """
 
-from typing import NamedTuple, Any, Optional, Union, Sequence
+from typing import Any
+from typing import NamedTuple
+from typing import Optional
+from typing import Sequence
+from typing import Union
 
-from .enums import CharVPos, WrapMode
+from .enums import CharVPos
+from .enums import WrapMode
 from .errors import FPDFException
 
 SOFT_HYPHEN = "\u00ad"

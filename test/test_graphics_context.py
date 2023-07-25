@@ -1,9 +1,10 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from fpdf import FPDF, drawing
-from test.conftest import assert_pdf_equal
+from fpdf import FPDF
+from fpdf import drawing
 
 HERE = Path(__file__).resolve().parent
 

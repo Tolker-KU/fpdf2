@@ -1,12 +1,15 @@
 # pylint: disable=redefined-loop-name
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
 import fpdf
-from fpdf.enums import Align, XPos, YPos
-from fpdf.line_break import MultiLineBreak, TextLine
-from test.conftest import assert_pdf_equal
+from fpdf.enums import Align
+from fpdf.enums import XPos
+from fpdf.enums import YPos
+from fpdf.line_break import MultiLineBreak
+from fpdf.line_break import TextLine
 
 HERE = Path(__file__).resolve().parent
 

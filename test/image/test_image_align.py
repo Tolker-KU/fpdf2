@@ -1,8 +1,8 @@
 from pathlib import Path
-
-from fpdf import Align, FPDF
 from test.conftest import assert_pdf_equal
 
+from fpdf import FPDF
+from fpdf import Align
 
 HERE = Path(__file__).resolve().parent
 IMAGE_PATH = HERE / "png_images/ba2b2b6e72ca0e4683bb640e2d5572f8.png"

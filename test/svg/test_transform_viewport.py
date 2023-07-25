@@ -1,5 +1,6 @@
-import fpdf
 import pytest
+
+import fpdf
 
 
 def test_rect_transform_width_exception():

@@ -1,22 +1,23 @@
 import hashlib
 from datetime import datetime
-from typing import NamedTuple, Tuple, Union
+from typing import NamedTuple
+from typing import Tuple
+from typing import Union
 
 from .actions import Action
-from .enums import AnnotationFlag, AnnotationName, FileAttachmentAnnotationName
-from .syntax import (
-    build_obj_dict,
-    Destination,
-    Name,
-    PDFContentStream,
-    PDFDate,
-    PDFObject,
-    PDFString,
-)
+from .enums import AnnotationFlag
+from .enums import AnnotationName
+from .enums import FileAttachmentAnnotationName
+from .syntax import Destination
+from .syntax import Name
+from .syntax import PDFContentStream
+from .syntax import PDFDate
+from .syntax import PDFObject
+from .syntax import PDFString
+from .syntax import build_obj_dict
 from .syntax import create_dictionary_string as pdf_dict
 from .syntax import create_list_string as pdf_list
 from .syntax import iobj_ref as pdf_ref
-
 
 # cf. https://docs.verapdf.org/validation/pdfa-part1/#rule-653-2
 DEFAULT_ANNOT_FLAGS = (AnnotationFlag.PRINT,)

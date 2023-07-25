@@ -1,10 +1,12 @@
 from pathlib import Path
 
-import fpdf
 import pytest
-from fpdf.errors import FPDFException, FPDFUnicodeEncodingException
-from fpdf.image_parsing import get_img_info
 from PIL import Image
+
+import fpdf
+from fpdf.errors import FPDFException
+from fpdf.errors import FPDFUnicodeEncodingException
+from fpdf.image_parsing import get_img_info
 
 HERE = Path(__file__).resolve().parent
 

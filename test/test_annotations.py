@@ -1,11 +1,15 @@
 from pathlib import Path
+from test.conftest import EPOCH
+from test.conftest import LOREM_IPSUM
+from test.conftest import assert_pdf_equal
 
 from fpdf import FPDF
-from fpdf.actions import GoToAction, GoToRemoteAction, LaunchAction, NamedAction
+from fpdf.actions import GoToAction
+from fpdf.actions import GoToRemoteAction
+from fpdf.actions import LaunchAction
+from fpdf.actions import NamedAction
 from fpdf.enums import AnnotationName
 from fpdf.syntax import DestinationXYZ
-
-from test.conftest import assert_pdf_equal, EPOCH, LOREM_IPSUM
 
 HERE = Path(__file__).resolve().parent
 

@@ -1,9 +1,9 @@
 from pathlib import Path
-
+from test.conftest import EPOCH
+from test.conftest import assert_pdf_equal
+from test.conftest import check_signature
 
 from fpdf import FPDF
-from test.conftest import assert_pdf_equal, check_signature, EPOCH
-
 
 HERE = Path(__file__).resolve().parent
 TRUSTED_CERT_PEMS = (HERE / "demo2_ca.crt.pem",)

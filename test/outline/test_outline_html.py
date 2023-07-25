@@ -1,9 +1,9 @@
-from pathlib import Path
 import warnings
-
-from fpdf import FPDF, HTML2FPDF
+from pathlib import Path
 from test.conftest import assert_pdf_equal
 
+from fpdf import FPDF
+from fpdf import HTML2FPDF
 
 HERE = Path(__file__).resolve().parent
 

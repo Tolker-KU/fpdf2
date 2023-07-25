@@ -1,22 +1,21 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
+
+import pytest
 
 from fpdf import FPDF
-from fpdf.transitions import (
-    SplitTransition,
-    BlindsTransition,
-    BoxTransition,
-    WipeTransition,
-    DissolveTransition,
-    GlitterTransition,
-    FlyTransition,
-    PushTransition,
-    CoverTransition,
-    UncoverTransition,
-    FadeTransition,
-    Transition,
-)
-from test.conftest import assert_pdf_equal
-import pytest
+from fpdf.transitions import BlindsTransition
+from fpdf.transitions import BoxTransition
+from fpdf.transitions import CoverTransition
+from fpdf.transitions import DissolveTransition
+from fpdf.transitions import FadeTransition
+from fpdf.transitions import FlyTransition
+from fpdf.transitions import GlitterTransition
+from fpdf.transitions import PushTransition
+from fpdf.transitions import SplitTransition
+from fpdf.transitions import Transition
+from fpdf.transitions import UncoverTransition
+from fpdf.transitions import WipeTransition
 
 HERE = Path(__file__).resolve().parent
 

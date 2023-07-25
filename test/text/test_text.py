@@ -1,9 +1,10 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from fpdf import FPDF, FPDFException
-from test.conftest import assert_pdf_equal
+from fpdf import FPDF
+from fpdf import FPDFException
 
 TEXT_SIZE, SPACING = 36, 1.15
 LINE_HEIGHT = TEXT_SIZE * SPACING

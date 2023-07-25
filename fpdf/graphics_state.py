@@ -1,5 +1,7 @@
 from .drawing import DeviceGray
-from .enums import CharVPos, TextEmphasis, TextMode
+from .enums import CharVPos
+from .enums import TextEmphasis
+from .enums import TextMode
 from .fonts import FontFace
 
 

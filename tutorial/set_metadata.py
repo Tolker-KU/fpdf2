@@ -3,6 +3,7 @@ import sys
 from datetime import datetime
 
 import pikepdf
+
 from fpdf import FPDF_VERSION
 
 with pikepdf.open(sys.argv[1], allow_overwriting_input=True) as pdf:

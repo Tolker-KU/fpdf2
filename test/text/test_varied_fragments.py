@@ -4,11 +4,14 @@ Fragments with varying font/size/style and other characteristics.
 
 # pylint: disable=protected-access
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 from fpdf import FPDF
-from fpdf.enums import Align, XPos, YPos
-from fpdf.line_break import Fragment, MultiLineBreak
-from test.conftest import assert_pdf_equal
+from fpdf.enums import Align
+from fpdf.enums import XPos
+from fpdf.enums import YPos
+from fpdf.line_break import Fragment
+from fpdf.line_break import MultiLineBreak
 
 HERE = Path(__file__).resolve().parent
 

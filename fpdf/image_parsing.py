@@ -1,13 +1,15 @@
-import base64, zlib
+import base64
+import logging
+import zlib
 from io import BytesIO
 from math import ceil
-from urllib.request import urlopen
 from pathlib import Path
-import logging
+from urllib.request import urlopen
 
 try:
-    from PIL import Image, TiffImagePlugin
+    from PIL import Image
     from PIL import ImageCms
+    from PIL import TiffImagePlugin
 
     try:
         from PIL.Image import Resampling
@@ -20,7 +22,6 @@ except ImportError:
     Image = None
 
 from .errors import FPDFException
-
 
 LOGGER = logging.getLogger(__name__)
 SUPPORTED_IMAGE_FILTERS = ("AUTO", "FlateDecode", "DCTDecode", "JPXDecode")

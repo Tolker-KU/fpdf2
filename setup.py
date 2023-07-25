@@ -3,7 +3,6 @@ from pathlib import Path
 
 from setuptools import setup
 
-
 if __name__ == "__main__":
     version = re.findall(
         r'FPDF_VERSION = "(\d+.\d+.\d+[^"]*)"',

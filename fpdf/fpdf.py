@@ -8,22 +8,33 @@
 # * Maintainer:  David Alexander (daveankin@gmail.com) et al since 2017 est. *
 # * Maintainer:  Lucas Cimon et al since 2021 est.                           *
 # ****************************************************************************
-import hashlib, io, logging, math, os, re, sys, warnings
+import hashlib
+import io
+import logging
+import math
+import os
+import re
+import sys
+import warnings
 from collections import defaultdict
 from collections.abc import Sequence
 from contextlib import contextmanager
-from datetime import datetime, timezone
+from datetime import datetime
+from datetime import timezone
 from functools import wraps
 from html import unescape
 from math import isclose
 from numbers import Number
 from os.path import splitext
 from pathlib import Path
-from typing import Callable, NamedTuple, Optional, Union
+from typing import Callable
+from typing import NamedTuple
+from typing import Optional
+from typing import Union
 
 try:
-    from endesive import signer
     from cryptography.hazmat.primitives.serialization import pkcs12
+    from endesive import signer
 except ImportError:
     pkcs12, signer = None, None
 
@@ -41,55 +52,62 @@ except ImportError:
 
 from . import drawing
 from .actions import URIAction
-from .annotations import (
-    AnnotationDict,
-    PDFAnnotation,
-    PDFEmbeddedFile,
-    DEFAULT_ANNOT_FLAGS,
-)
+from .annotations import DEFAULT_ANNOT_FLAGS
+from .annotations import AnnotationDict
+from .annotations import PDFAnnotation
+from .annotations import PDFEmbeddedFile
 from .deprecation import WarnOnDeprecatedModuleAttributes
 from .encryption import StandardSecurityHandler
-from .enums import (
-    AccessPermission,
-    Align,
-    Angle,
-    AnnotationFlag,
-    AnnotationName,
-    CharVPos,
-    Corner,
-    EncryptionMethod,
-    FileAttachmentAnnotationName,
-    MethodReturnValue,
-    PageLayout,
-    PageMode,
-    PathPaintRule,
-    RenderStyle,
-    TextEmphasis,
-    TextMarkupType,
-    TextMode,
-    WrapMode,
-    XPos,
-    YPos,
-)
-from .errors import FPDFException, FPDFPageFormatException, FPDFUnicodeEncodingException
-from .fonts import CoreFont, CORE_FONTS, FontFace, TTFFont
+from .enums import AccessPermission
+from .enums import Align
+from .enums import Angle
+from .enums import AnnotationFlag
+from .enums import AnnotationName
+from .enums import CharVPos
+from .enums import Corner
+from .enums import EncryptionMethod
+from .enums import FileAttachmentAnnotationName
+from .enums import MethodReturnValue
+from .enums import PageLayout
+from .enums import PageMode
+from .enums import PathPaintRule
+from .enums import RenderStyle
+from .enums import TextEmphasis
+from .enums import TextMarkupType
+from .enums import TextMode
+from .enums import WrapMode
+from .enums import XPos
+from .enums import YPos
+from .errors import FPDFException
+from .errors import FPDFPageFormatException
+from .errors import FPDFUnicodeEncodingException
+from .fonts import CORE_FONTS
+from .fonts import CoreFont
+from .fonts import FontFace
+from .fonts import TTFFont
 from .graphics_state import GraphicsStateMixin
 from .html import HTML2FPDF
-from .image_parsing import SUPPORTED_IMAGE_FILTERS, get_img_info, load_image
-from .line_break import Fragment, MultiLineBreak, TextLine
+from .image_parsing import SUPPORTED_IMAGE_FILTERS
+from .image_parsing import get_img_info
+from .image_parsing import load_image
+from .line_break import Fragment
+from .line_break import MultiLineBreak
+from .line_break import TextLine
 from .linearization import LinearizedOutputProducer
-from .output import OutputProducer, PDFPage, ZOOM_CONFIGS
 from .outline import OutlineSection
+from .output import ZOOM_CONFIGS
+from .output import OutputProducer
+from .output import PDFPage
 from .recorder import FPDFRecorder
-from .structure_tree import StructureTreeBuilder
 from .sign import Signature
-from .svg import Percent, SVGObject
-from .syntax import DestinationXYZ, PDFDate
+from .structure_tree import StructureTreeBuilder
+from .svg import Percent
+from .svg import SVGObject
+from .syntax import DestinationXYZ
+from .syntax import PDFDate
 from .table import Table
-from .util import (
-    escape_parens,
-    get_scale_factor,
-)
+from .util import escape_parens
+from .util import get_scale_factor
 
 # Public global variables:
 FPDF_VERSION = "2.7.4"

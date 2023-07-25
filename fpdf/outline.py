@@ -3,10 +3,13 @@ Quoting section 8.2.2 "Document Outline" of the 2006 PDF spec 1.7:
 > The document outline consists of a tree-structured hierarchy of outline items (sometimes called bookmarks),
 > which serve as a visual table of contents to display the document’s structure to the user.
 """
-from typing import NamedTuple, Optional
+from typing import NamedTuple
+from typing import Optional
 
-from .syntax import Destination, PDFObject, PDFString
 from .structure_tree import StructElem
+from .syntax import Destination
+from .syntax import PDFObject
+from .syntax import PDFString
 
 
 class OutlineSection(NamedTuple):

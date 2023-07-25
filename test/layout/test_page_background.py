@@ -1,11 +1,11 @@
 import io
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 from PIL import Image
 
-from fpdf import FPDF, drawing
-from test.conftest import assert_pdf_equal
-
+from fpdf import FPDF
+from fpdf import drawing
 
 HERE = Path(__file__).resolve().parent
 imgpath = str(HERE / "../image/image_types/insert_images_insert_jpg.jpg")

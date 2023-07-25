@@ -1,7 +1,9 @@
-import math, re, warnings
+import math
+import re
+import warnings
 
-from fontTools.svgLib.path import parse_path
 from fontTools.pens.basePen import BasePen
+from fontTools.svgLib.path import parse_path
 
 try:
     from defusedxml.ElementTree import fromstring as parse_xml_str
@@ -13,14 +15,12 @@ except ImportError:
     from xml.etree.ElementTree import fromstring as parse_xml_str  # nosec
 
 from . import html
-from .drawing import (
-    color_from_hex_string,
-    color_from_rgb_string,
-    GraphicsContext,
-    GraphicsStyle,
-    PaintedPath,
-    Transform,
-)
+from .drawing import GraphicsContext
+from .drawing import GraphicsStyle
+from .drawing import PaintedPath
+from .drawing import Transform
+from .drawing import color_from_hex_string
+from .drawing import color_from_rgb_string
 
 __pdoc__ = {"force_nodocument": False}
 

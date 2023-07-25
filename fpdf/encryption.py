@@ -4,12 +4,16 @@ import math
 from os import urandom
 
 from .enums import EncryptionMethod
-from .syntax import Name, PDFObject, PDFString
-from .syntax import create_dictionary_string as pdf_dict, build_obj_dict
+from .syntax import Name
+from .syntax import PDFObject
+from .syntax import PDFString
+from .syntax import build_obj_dict
+from .syntax import create_dictionary_string as pdf_dict
 
 # try to use cryptography for AES encryption
 try:
-    from cryptography.hazmat.primitives.ciphers import Cipher, modes
+    from cryptography.hazmat.primitives.ciphers import Cipher
+    from cryptography.hazmat.primitives.ciphers import modes
     from cryptography.hazmat.primitives.ciphers.algorithms import AES128
     from cryptography.hazmat.primitives.padding import PKCS7
 

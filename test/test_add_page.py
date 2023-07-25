@@ -1,9 +1,8 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import fpdf
-from test.conftest import assert_pdf_equal
 from fpdf.drawing import DeviceGray
-
 
 HERE = Path(__file__).resolve().parent
 

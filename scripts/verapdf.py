@@ -9,9 +9,11 @@
 # USAGE: ./verapdf.py [$pdf_filepath]
 
 import sys
-from subprocess import PIPE, run
+from subprocess import PIPE
+from subprocess import run
 
-from scripts.checker_commons import aggregate, print_aggregated_report
+from scripts.checker_commons import aggregate
+from scripts.checker_commons import print_aggregated_report
 
 AGGREGATED_REPORT_FILEPATH = "verapdf-aggregated.json"
 IGNORE_WHITELIST_FILEPATH = "scripts/verapdf-ignore.json"

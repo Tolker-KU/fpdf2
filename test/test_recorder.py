@@ -1,7 +1,9 @@
+from test.conftest import EPOCH
+from test.conftest import LOREM_IPSUM
+from test.conftest import assert_pdf_equal
+
 from fpdf import FPDF
 from fpdf.recorder import FPDFRecorder
-
-from test.conftest import assert_pdf_equal, EPOCH, LOREM_IPSUM
 
 
 def init_pdf():

@@ -1,7 +1,9 @@
-from abc import ABC
 import warnings
+from abc import ABC
 
-from .syntax import PDFString, build_obj_dict, create_dictionary_string
+from .syntax import PDFString
+from .syntax import build_obj_dict
+from .syntax import create_dictionary_string
 
 
 class Action(ABC):

@@ -1,10 +1,10 @@
 from pathlib import Path
-
-import fpdf
-from fpdf.errors import FPDFException
 from test.conftest import assert_pdf_equal
 
 import pytest
+
+import fpdf
+from fpdf.errors import FPDFException
 
 HERE = Path(__file__).resolve().parent
 POLYLINE_COORDINATES = [(10, 10), (40, 10), (10, 40)]

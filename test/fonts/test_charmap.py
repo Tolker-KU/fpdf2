@@ -11,12 +11,13 @@ and this seems to be okay.
 """
 import logging
 from pathlib import Path
+from test.conftest import assert_pdf_equal
+from test.conftest import ensure_exec_time_below
 
-from fontTools.ttLib import TTFont
 import pytest
+from fontTools.ttLib import TTFont
 
 from fpdf import FPDF
-from test.conftest import assert_pdf_equal, ensure_exec_time_below
 
 HERE = Path(__file__).resolve().parent
 

@@ -3,16 +3,15 @@
 import copy
 import io
 import math
-from pathlib import Path
 import re
-
-import fpdf
+from pathlib import Path
 from test.conftest import assert_pdf_equal
 
 import pytest
 
-from . import parameters
+import fpdf
 
+from . import parameters
 
 HERE = Path(__file__).resolve().parent
 bad_path_chars = re.compile(r"[\[\]=#, ]")

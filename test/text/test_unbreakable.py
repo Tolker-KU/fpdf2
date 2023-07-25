@@ -1,10 +1,10 @@
 from pathlib import Path
-
-from fpdf import FPDF, FPDFException
 from test.conftest import assert_pdf_equal
 
 import pytest
 
+from fpdf import FPDF
+from fpdf import FPDFException
 
 HERE = Path(__file__).resolve().parent
 

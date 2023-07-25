@@ -1,7 +1,8 @@
 from filecmp import cmp
 
-import fpdf
 import pytest
+
+import fpdf
 
 
 def test_repeated_calls_to_output(tmp_path):

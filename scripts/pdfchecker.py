@@ -11,7 +11,8 @@
 import sys
 from subprocess import check_output
 
-from scripts.checker_commons import aggregate, print_aggregated_report
+from scripts.checker_commons import aggregate
+from scripts.checker_commons import print_aggregated_report
 
 AGGREGATED_REPORT_FILEPATH = "pdfchecker-aggregated.json"
 IGNORE_WHITELIST_FILEPATH = "scripts/pdfchecker-ignore.json"

@@ -1,8 +1,8 @@
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 from fpdf import FPDF
 from fpdf.fonts import SubsetMap
-from test.conftest import assert_pdf_equal
 
 HERE = Path(__file__).resolve().parent
 

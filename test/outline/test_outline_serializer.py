@@ -1,5 +1,7 @@
-from fpdf.outline import OutlineSection, build_outline_objs
-from fpdf.syntax import DestinationXYZ, PDFString
+from fpdf.outline import OutlineSection
+from fpdf.outline import build_outline_objs
+from fpdf.syntax import DestinationXYZ
+from fpdf.syntax import PDFString
 
 
 def _serialize_outline(sections, first_object_id=1):

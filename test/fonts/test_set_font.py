@@ -1,12 +1,13 @@
 import itertools
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
 from fpdf import FPDF
 from fpdf.errors import FPDFException
-from fpdf.fonts import CORE_FONTS, CORE_FONTS_CHARWIDTHS
-from test.conftest import assert_pdf_equal
+from fpdf.fonts import CORE_FONTS
+from fpdf.fonts import CORE_FONTS_CHARWIDTHS
 
 HERE = Path(__file__).resolve().parent
 

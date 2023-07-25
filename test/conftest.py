@@ -1,9 +1,4 @@
 # pylint: disable=import-outside-toplevel
-from contextlib import contextmanager
-from datetime import datetime, timezone
-from time import perf_counter
-from timeit import timeit
-from types import SimpleNamespace
 import functools
 import gc
 import hashlib
@@ -14,13 +9,21 @@ import shutil
 import sys
 import tracemalloc
 import warnings
-
-from subprocess import check_output, CalledProcessError, PIPE
+from contextlib import contextmanager
+from datetime import datetime
+from datetime import timezone
+from subprocess import PIPE
+from subprocess import CalledProcessError
+from subprocess import check_output
+from time import perf_counter
+from timeit import timeit
+from types import SimpleNamespace
 
 import pytest
 
-from fpdf.util import get_process_rss_as_mib, print_mem_usage
 from fpdf.template import Template
+from fpdf.util import get_process_rss_as_mib
+from fpdf.util import print_mem_usage
 
 QPDF_AVAILABLE = bool(shutil.which("qpdf"))
 if not QPDF_AVAILABLE:
@@ -378,7 +381,8 @@ def pympler_summary(request):
     if request.config.getoption("pympler_summary"):
         # pylint: disable=import-error
         from pympler.muppy import get_objects
-        from pympler.summary import print_, summarize
+        from pympler.summary import print_
+        from pympler.summary import summarize
 
         gc.collect()
         all_objects = get_objects()

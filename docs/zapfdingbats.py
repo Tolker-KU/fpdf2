@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from itertools import chain
-from string import digits, ascii_uppercase, ascii_lowercase
+from string import ascii_lowercase
+from string import ascii_uppercase
+from string import digits
+
 from fpdf import FPDF
 
 pdf = FPDF()

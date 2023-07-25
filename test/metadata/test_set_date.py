@@ -1,11 +1,12 @@
-from datetime import datetime, timedelta, timezone
+from datetime import datetime
+from datetime import timedelta
+from datetime import timezone
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
 import fpdf
-from test.conftest import assert_pdf_equal
-
 
 HERE = Path(__file__).resolve().parent
 

@@ -9,9 +9,12 @@ Quoting the PDF spec:
 > located by means of the **StructTreeRoot** entry in the document catalog.
 """
 from collections import defaultdict
-from typing import List, Union
+from typing import List
+from typing import Union
 
-from .syntax import PDFObject, PDFString, PDFArray
+from .syntax import PDFArray
+from .syntax import PDFObject
+from .syntax import PDFString
 
 
 class NumberTree(PDFObject):

@@ -1,13 +1,14 @@
 import logging
 from pathlib import Path
+from test.conftest import LOREM_IPSUM
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from fpdf import FPDF, FPDFException
+from fpdf import FPDF
+from fpdf import FPDFException
 from fpdf.drawing import DeviceRGB
 from fpdf.fonts import FontFace
-from test.conftest import assert_pdf_equal, LOREM_IPSUM
-
 
 HERE = Path(__file__).resolve().parent
 

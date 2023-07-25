@@ -1,11 +1,11 @@
 from pathlib import Path
-
-import pytest
-
-from fpdf import FPDF, FPDFException
 from test.conftest import assert_pdf_equal
 from test.table.test_table import MULTILINE_TABLE_DATA
 
+import pytest
+
+from fpdf import FPDF
+from fpdf import FPDFException
 
 HERE = Path(__file__).resolve().parent
 

@@ -1,13 +1,13 @@
 # pylint: disable=implicit-str-concat
 from pathlib import Path
+from test.conftest import assert_pdf_equal
 
 import pytest
 
-from fpdf import FPDF, HTMLMixin
+from fpdf import FPDF
+from fpdf import HTMLMixin
 from fpdf.errors import FPDFException
 from fpdf.html import px2mm
-from test.conftest import assert_pdf_equal
-
 
 HERE = Path(__file__).resolve().parent
 

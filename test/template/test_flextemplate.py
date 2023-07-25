@@ -1,8 +1,11 @@
 from pathlib import Path
-from pytest import raises
+
 import qrcode
+from pytest import raises
+
 from fpdf.fpdf import FPDF
 from fpdf.template import FlexTemplate
+
 from ..conftest import assert_pdf_equal
 
 HERE = Path(__file__).resolve().parent

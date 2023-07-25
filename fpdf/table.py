@@ -1,12 +1,16 @@
 from dataclasses import dataclass
 from numbers import Number
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
 
-from .enums import Align, TableBordersLayout, TableCellFillMode, WrapMode
+from .enums import Align
 from .enums import MethodReturnValue
+from .enums import TableBordersLayout
+from .enums import TableCellFillMode
+from .enums import WrapMode
 from .errors import FPDFException
-from .fonts import CORE_FONTS, FontFace
-
+from .fonts import CORE_FONTS
+from .fonts import FontFace
 
 DEFAULT_HEADINGS_STYLE = FontFace(emphasis="BOLD")
 

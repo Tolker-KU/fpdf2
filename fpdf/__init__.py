@@ -1,17 +1,20 @@
 import sys
 
-from .enums import Align, TextMode, XPos, YPos
-from .fpdf import (
-    FPDF,
-    FPDFException,
-    TitleStyle,
-    FPDF_FONT_DIR as _FPDF_FONT_DIR,
-    FPDF_VERSION as _FPDF_VERSION,
-)
-from .html import HTMLMixin, HTML2FPDF
-from .prefs import ViewerPreferences
-from .template import Template, FlexTemplate
 from .deprecation import WarnOnDeprecatedModuleAttributes
+from .enums import Align
+from .enums import TextMode
+from .enums import XPos
+from .enums import YPos
+from .fpdf import FPDF
+from .fpdf import FPDF_FONT_DIR as _FPDF_FONT_DIR
+from .fpdf import FPDF_VERSION as _FPDF_VERSION
+from .fpdf import FPDFException
+from .fpdf import TitleStyle
+from .html import HTML2FPDF
+from .html import HTMLMixin
+from .prefs import ViewerPreferences
+from .template import FlexTemplate
+from .template import Template
 
 FPDF_VERSION = _FPDF_VERSION
 "Current FPDF Version, also available via `__version__`"

@@ -3,7 +3,8 @@ import hashlib
 from datetime import timezone
 from unittest.mock import patch
 
-from .syntax import build_obj_dict, Name
+from .syntax import Name
+from .syntax import build_obj_dict
 from .syntax import create_dictionary_string as pdf_dict
 from .util import buffer_subst
 

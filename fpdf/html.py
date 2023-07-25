@@ -1,14 +1,17 @@
 "HTML renderer"
 
-import logging, warnings
+import logging
+import re
+import warnings
 from html.parser import HTMLParser
 
-from .enums import TextEmphasis, XPos, YPos
+from .enums import TextEmphasis
+from .enums import XPos
+from .enums import YPos
 from .errors import FPDFException
 from .fonts import FontFace
-from .table import Table, TableBordersLayout
-
-import re
+from .table import Table
+from .table import TableBordersLayout
 
 LOGGER = logging.getLogger(__name__)
 BULLET_WIN1252 = "\x95"  # BULLET character in Windows-1252 encoding
